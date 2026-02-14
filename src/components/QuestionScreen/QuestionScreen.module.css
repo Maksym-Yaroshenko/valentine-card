@@ -1,0 +1,144 @@
+/* БАЗОВІ СТИЛІ (MOBILE FIRST) - від 320px і вище */
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 20px 15px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(209, 26, 42, 0.15);
+  text-align: center;
+  width: 90%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: popIn 0.5s ease-out;
+}
+
+.gifImage {
+  width: 160px;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 12px;
+}
+
+.questionText {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #e63946;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Збільшимо відступ між кнопками */
+  align-items: center;
+  width: 100%;
+  /* На десктопі додамо position: relative для контейнера */
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 16px; /* Більш заокруглені кути */
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  width: auto; /* Повертаємо авто-ширину для кнопки */
+  max-width: 100%; /* Щоб кнопка не була ширшою за картку */
+
+  /* ВАЖЛИВО: Запобігаємо вилазанню тексту */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* Якщо текст все одно не вміщається, буде три крапки */
+}
+
+.yesBtn {
+  background-color: #4caf50;
+  color: white;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+  /* Мінімальна ширина, щоб кнопка завжди була гарною */
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noBtn {
+  background-color: #ff4d4d;
+  color: white;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
+  z-index: 10;
+  /* Мінімальна ширина для кнопки Ні */
+  min-width: 100px;
+}
+
+/* ========================================= */
+/* ТАБЛЕТКИ ТА ДЕСКТОПИ (від 768px і вище)   */
+/* ========================================= */
+@media screen and (min-width: 768px) {
+  .card {
+    padding: 40px 30px;
+    max-width: 500px; /* Трохи ширша картка */
+    border-radius: 24px;
+  }
+
+  .gifImage {
+    width: 220px;
+    margin-bottom: 25px;
+  }
+
+  .questionText {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .buttonsContainer {
+    flex-direction: row; /* На широких екранах кнопки в один ряд */
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Для коректного руху кнопки */
+    height: 150px; /* Фіксована висота контейнера, щоб кнопки не стрибали */
+  }
+
+  /* Обгортка для кнопки "Да", щоб вона не зсувалася, коли рухається "Ні" */
+  .yesButtonWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Вона займе свій простір і не дасть кнопці "Ні" налізти на неї в стані спокою */
+    min-width: 150px;
+  }
+
+  /* Кнопка "Ні" тепер рухається абсолютно відносно контейнера */
+  .noBtn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* Початково центруємо її */
+    margin-left: 80px; /* Відступ вправо від центру */
+    margin-top: -25px; /* Трохи вгору для вирівнювання */
+  }
+
+  .yesBtn:hover {
+    background-color: #45a049;
+    transform: scale(1.02); /* Менший ефект збільшення */
+  }
+
+  .noBtn:hover {
+    background-color: #ff3333;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
