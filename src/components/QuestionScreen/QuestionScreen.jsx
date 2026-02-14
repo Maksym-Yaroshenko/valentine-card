@@ -94,7 +94,9 @@ export const QuestionScreen = ({ onAccept, onReject }) => {
         src="https://png.pngtree.com/png-clipart/20240316/original/pngtree-cute-doodle-bear-for-valentines-day-adorable-couple-of-valentine-bears-png-image_14602248.png"
         alt="Милые медведи"
       />
-      <h1 className={css.questionText}>Будешь моей Валентинкой? 🧸💌</h1>
+      <h1 className={css.questionText}>
+        Кристинка, будешь моей Валентинкой? 🧸💌
+      </h1>
 
       <div className={css.buttonsContainer}>
         {/* Додаємо клас-обгортку для кнопки "Да", щоб контролювати її розміри та позицію на десктопі */}
